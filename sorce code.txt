@@ -1,0 +1,91 @@
+title "ツール起動"
+screen 0,850,380
+*mouitido
+	x=0
+	y=1
+	p=200
+	cls 1
+	font "ＭＳ ゴシック",25,1
+	color 255,0,0
+	pos 10,p
+	mes "※各ボタンを押すと、このアプリは自動で終了します。"
+	pos 30,p+30
+	mes "(消さない場合、タスクバーのスープアイコンを"
+	pos 450,p+60
+	mes "クリックすると再表示されます。)"
+	pos 10,p+90
+	mes "※書き出しは、ファイル名にスペースがあると、"
+	pos 470,p+120
+	mes "書き出せない場合があります。"
+	pos 40,p+150
+	chkbox "消す",y
+	pos 10,p+150
+	mes "※　　 ←自動終了させたくない場合は、チェックを外してください。"
+	font "ＭＳ ゴシック",20,1
+	color 0,0,0
+	pos 70,x
+	mes "←電卓のアプリを起動します。"
+	pos 70,x+25
+	mes "←メモ帳のアプリを起動します。"
+	pos 70,x+50
+	mes "←ペイントツールのアプリを起動します。"
+	pos 70,x+75
+	mes "←メモ帳の既存ファイルを直接起動します。"
+	pos 70,x+100
+	mes "←ペイントツールの既存ファイルを直接起動します。"
+	pos 70,x+125
+	mes "←GoogleのHPに飛びます。"
+	pos 70,x+150
+	mes "←P検のHPに飛びます。"
+	pos 70,x+170
+	mes "←このアプリを終了します。"
+	pos 5,0
+	button "電卓",*dentaku
+	button "メモ帳",*memo
+	button "ペイント",*peinto
+	button "書き出し",*kakidasi1
+	button "書き出し",*kakidasi2
+	button "Google",*google
+	button "P検",*pken
+	button "終了",*owari
+	stop
+*dentaku
+	exec "calc"
+	if y=1:end
+	stop
+*memo
+	exec "notepad"
+	if y=1:end
+	stop
+*peinto
+	exec "mspaint"
+	if y=1:end
+	stop
+*kakidasi1
+	dialog "txt", 16, "テキストファイル"
+	if stat = 0: stop
+	mes refstr
+
+	exec "notepad "+refstr+""
+	if y=1:end
+	if y=0:goto *mouitido
+	stop
+*kakidasi2
+	dialog "bmp;*.gif;*.png;*.jpg", 16, "画像ファイル"
+	if stat = 0 : stop
+	mes refstr
+
+	exec "mspaint "+refstr+""
+	if y=1:end
+	if y=0:goto *mouitido
+	stop
+*google
+	exec "http://www.google.co.jp",16
+	if y=1:end
+	stop
+*pken
+	exec "http://www.pken.com/",16
+	if y=1:end
+	stop
+*owari
+	end
