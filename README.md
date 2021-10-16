@@ -5,4 +5,4 @@
 　元は、HSPで作成されている。
 
 ## ダウンロード
-　　ダウンロードは**[こちら](https://drive.google.com/file/d/1pJYIeftNVHY2jUC-Dxcn0mKcrmYsr96u/view?usp=sharing)**からできます。
+　　**ダウンロードは[こちら](https://drive.google.com/file/d/1pJYIeftNVHY2jUC-Dxcn0mKcrmYsr96u/view?usp=sharing)から**できます。
